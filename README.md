@@ -28,3 +28,9 @@
 6. Klik tab Simulation, klik tambah, tambahkan perangkat sensor DHT dan Relay, sesuaikan dengan gambar rangkaian yang disediakan.
 7. Selanjutkan klik tombol play, tunggu hingga berhasil dan lihat serial monitornya pada bagian bawah.
 8. Akses aplikasi [USE](https://ursmartecosystem.my.id) untuk melakukan kontrol dan monitor.
+
+# 
+> [!TIP]
+> 1. Untuk pin bisa disesuaikan lagi sesuai dengan keinginan, pastikan saja pin yang dideklarasikan dicode sesuai dengan yang dirangkaikan pada hardware.
+> 2. Ganti semua "em4il@m4ildotcom" ke email yang sudah didaftar di aplikasi [USE](https://ursmartecosystem.my.id)
+> 3. Pastikan perangkat terhubung dengan Internet.
