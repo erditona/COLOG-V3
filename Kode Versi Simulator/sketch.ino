@@ -30,18 +30,18 @@ void connect() {
   if (client.connected()) {
     Serial.println("\nconnected!");
 
-    // Publish pesan dengan nilai "true" ke topik "urse/email@gmail.com/statushadwareiot"
-    client.publish("urse/email@gmail.com/statushadwareiot", "true");
-    Serial.println("Published 'true' to urse/email@gmail.com/statushadwareiot");
+    // Publish pesan dengan nilai "true" ke topik "urse/email@mail.com/statushadwareiot"
+    client.publish("urse/email@mail.com/statushadwareiot", "true");
+    Serial.println("Published 'true' to urse/email@mail.com/statushadwareiot");
 
     // Subscribe ke topik umum
     client.subscribe("urse/#");
   } else {
     Serial.println("\nconnection failed!");
 
-    // Publish pesan dengan nilai "false" ke topik "urse/email@gmail.com/statushadwareiot"
-    client.publish("urse/email@gmail.com/statushadwareiot", "false");
-    Serial.println("Published 'false' to urse/email@gmail.com/statushadwareiot");
+    // Publish pesan dengan nilai "false" ke topik "urse/email@mail.com/statushadwareiot"
+    client.publish("urse/email@mail.com/statushadwareiot", "false");
+    Serial.println("Published 'false' to urse/email@mail.com/statushadwareiot");
   }
 }
 
@@ -49,13 +49,13 @@ void connect() {
 void pesanMasuk(String &topic, String &payload) {
   Serial.println("incoming: " + topic + " : " + payload);
 
-  if (topic == "urse/email@gmail.com/kamar/lampu") {
+  if (topic == "urse/email@mail.com/kamar/lampu") {
     digitalWrite(5, payload.toInt());
     // Serial.println("LED 1 state: " + String(digitalRead(5)));
-  } else if (topic == "urse/email@gmail.com/kamar/tv") {
+  } else if (topic == "urse/email@mail.com/kamar/tv") {
     digitalWrite(18, payload.toInt());
     // Serial.println("LED 2 state: " + String(digitalRead(18)));
-  } else if (topic == "urse/email@gmail.com/kamar/lampubaca") {
+  } else if (topic == "urse/email@mail.com/kamar/lampubaca") {
     digitalWrite(19, payload.toInt());
     // Serial.println("LED 3 state: " + String(digitalRead(19)));
   } 
@@ -86,9 +86,9 @@ void loop() {
   if (WiFi.status() != WL_CONNECTED) {
     Serial.println("WiFi disconnected");
 
-    // Publish pesan dengan nilai "false" ke topik "urse/email@gmail.com/statushadwareiot"
-    client.publish("urse/email@gmail.com/statushadwareiot", "false");
-    Serial.println("Published 'false' to urse/email@gmail.com/statushadwareiot");
+    // Publish pesan dengan nilai "false" ke topik "urse/email@mail.com/statushadwareiot"
+    client.publish("urse/email@mail.com/statushadwareiot", "false");
+    Serial.println("Published 'false' to urse/email@mail.com/statushadwareiot");
 
     // Reconnect WiFi dan MQTT jika diperlukan
     connect();
@@ -97,9 +97,9 @@ void loop() {
   if (!client.connected()) {
     Serial.println("Client disconnected");
     
-    // Publish pesan dengan nilai "false" ke topik "urse/email@gmail.com/statushadwareiot"
-    client.publish("urse/email@gmail.com/statushadwareiot", "false");
-    Serial.println("Published 'false' to urse/email@gmail.com/statushadwareiot");
+    // Publish pesan dengan nilai "false" ke topik "urse/email@mail.com/statushadwareiot"
+    client.publish("urse/email@mail.com/statushadwareiot", "false");
+    Serial.println("Published 'false' to urse/email@mail.com/statushadwareiot");
     
     connect();
   }
@@ -112,7 +112,7 @@ void loop() {
     float temperature = data.temperature; // Get temperature value
     float humidity = data.humidity;       // Get humidity value
 
-    client.publish("urse/email@gmail.com/monitoring", String(temperature, 2)+'-'+String(humidity, 2));
+    client.publish("urse/email@mail.com/monitoring", String(temperature, 2)+'-'+String(humidity, 2));
     Serial.println("---");
   }
   // delay (1000);
